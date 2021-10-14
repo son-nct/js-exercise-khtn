@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table
+      border="1"
+      width="400"
+      style="border-color: green; border-collapse: collapse"
+    >
+      <tr>
+        <td id="newName" colspan="3">
+          <span id="nameDisplay" style="color: rgb(252, 73, 103)"></span>
+        </td>
+      </tr>
+      <tr style="border-color: green">
+        <td style="color: green">Nhập tên của bạn:</td>
+        <td colspan="3">
+          <input id="name" type="text" style="width: 97%" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4" align="center">
+          <button>Thay đổi câu chào</button>
+        </td>
+      </tr>
+    </table>
+    <script>
+      var name = prompt("Hãy nhập tên của bạn");
+      var nameDisplay = document.getElementById("nameDisplay");
+      var firstName = `Chào bạn ${name}`;
+      nameDisplay.innerText = firstName;
+
+      var btnElement = document.querySelector("button");
+
+      btnElement.onclick = () => {
+        var inputValue = document.getElementById("name").value;
+        nameDisplay.innerText = `Chào bạn ${inputValue}`;
+      };
+    </script>
+  </body>
+</html>

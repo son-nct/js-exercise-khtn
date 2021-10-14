@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.7: Tìm các số chia hết cho 6 và 9</title>
+  </head>
+  <body>
+    <h1 style="color: #990000" align="center">Tìm các số chia hết cho 6 và 9</h1>
+    <table
+      cellspacing="0"
+      cellpadding="0"
+      bgcolor="#FFFFCC"
+      border="1"
+      align="center"
+      width="350"
+      style="border-collapse: collapse; color: #990000"
+    >
+      <tr>
+        <td colspan="2" style="padding-right: 25px">Nhập một số</td>
+        <td>
+          <input style="width: 90px" min="0" max="10" type="text" id="number" />
+
+          <button style="width: 70px">In</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4" align="left">
+          <span  style ="color: blue" id="display"></span>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+
+      var btn = document.querySelector("button");
+
+
+
+      btn.onclick = () => {
+        var numberInput = parseInt(document.getElementById("number").value);
+        var txtDisplay = document.getElementById("display");
+
+        txtDisplay.innerHTML = `Các số từ 1 đến ${numberInput} chia hết cho 6 và 9 là: `
+
+
+        for (let i = 1; i <= numberInput; i++) {
+          if (i % 6 === 0 && i % 9 === 0) {
+            txtDisplay.innerHTML += `${i}, `;
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

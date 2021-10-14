@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 align="center" style="color: green">Kết quả cuối năm học</h1>
+    <table
+      align="center"
+      border="1"
+      style="border-collapse: collapse"
+      width="300"
+      bordercolor="#33DA03"
+    >
+      <tr>
+        <td>Điểm trung bình</td>
+        <td>
+          <input style="width: 96%" min="0" max="10" type="number" id="mark" />
+        </td>
+      </tr>
+
+      <tr>
+        <td>Kết quả</td>
+        <td>
+          <input style="width: 96%" type="text" id="result" />
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4" align="center">
+          <button>Xuất kết quả</button>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      var mark = document.getElementById("mark");
+      var result = document.getElementById("result");
+
+      var btnElement = document.querySelector("button");
+
+      btnElement.onclick = () => {
+        if (parseInt(mark.value) < 5) {
+          result.value = "";
+          result.value = "Ở lai lớp";
+        } else {
+          result.value = "";
+          result.value = "Được lên lớp";
+        }
+      };
+    </script>
+  </body>
+</html>

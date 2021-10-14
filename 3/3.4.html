@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.4: Xếp loại cuối năm học</title>
+  </head>
+  <body>
+    <h1 style="color: green" align="center">Xếp loại cuối năm học</h1>
+
+    <table
+      bordercolor="#33DA03"
+      align="center"
+      width="350"
+      border="1"
+      style="border-collapse: collapse; color: #006600"
+    >
+      <tr>
+        <td colspan="4">Điểm trung bình HKI</td>
+        <td colspan="2">
+          <input min="0" max="10" type="number" id="hk1" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">Điểm trung bình HKII</td>
+        <td colspan="2">
+          <input min="0" max="10" type="number" id="hk2" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">Điểm trung bình cuối năm</td>
+        <td colspan="2">
+          <input min="0" max="10" type="number" id="avg" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">Xếp loại</td>
+        <td>
+          <span id="rank" style="color: red"></span>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" colspan="6">
+          <button>Xuất xếp loại</button>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      function avgMark() {
+        var mark_semester1 = parseInt(document.getElementById("hk1").value);
+        var mark_semester2 = parseInt(document.getElementById("hk2").value);
+
+        let mark_allYear = (mark_semester1 + mark_semester2 * 2) / 3;
+
+        return Number(mark_allYear.toFixed(2));
+      }
+
+      var btnElement = document.querySelector("button");
+      var avg = document.getElementById("avg");
+      var rank = document.getElementById("rank");
+
+      console.log(rank);
+
+      btnElement.onclick = () => {
+        var mark_avg = avgMark();
+        avg.value = mark_avg;
+
+        if (mark_avg >= 9 && mark_avg <= 10) {
+          rank.innerText = "Giỏi";
+        } else if (mark_avg >= 7 && mark_avg <= 9) {
+          rank.innerText = "Khá";
+        } else if (mark_avg >= 5 && mark_avg <= 7) {
+          rank.innerText = "Trung bình";
+        } else if (mark_avg < 5) {
+          rank.innerText = "Yếu";
+        }
+      };
+    </script>
+  </body>
+</html>

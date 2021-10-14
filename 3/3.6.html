@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.6 In bảng cửu chương</title>
+  </head>
+  <body>
+    <h1 style="color: green" align="center">In bảng cửu chương</h1>
+
+    <table
+      bordercolor="#CE692D"
+      align="center"
+      width="450"
+      border="1"
+      bgcolor="#FFFFCC"
+      style="border-collapse: collapse; color: #990000"
+      cellspacing="0"
+      cellpadding="3"
+    >
+      <tr>
+        <td colspan="4">Điểm trung bình HKI</td>
+        <td colspan="2">
+          <input
+            style="margin-right: 35px"
+            min="0"
+            max="10"
+            type="text"
+            id="number"
+          />
+
+          <button style="width: 70px">In</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6" align="center">
+          <span id="display" style="color: red"></span>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      var btnElement = document.querySelector("button");
+      btnElement.onclick = () => {
+        var display = document.getElementById("display");
+        var number = parseInt(document.getElementById("number").value);
+
+        if (isNaN(number) || number < 0 || number > 10) {
+          display.innerText = "Số nhập không hợp lệ !";
+        } else {
+            display.innerText = "";
+            for(let i = 1; i <= 10; i++) {
+                display.innerHTML += `${number} * ${i} = ${number * i} <br />`;
+            }
+        }
+      };
+    </script>
+  </body>
+</html>

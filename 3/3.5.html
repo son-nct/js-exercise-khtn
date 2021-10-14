@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.5: Tính tiền thưởng cuối năm</title>
+  </head>
+  <body>
+    <h1 style="color: green" align="center">Xếp loại cuối năm học</h1>
+
+    <table
+      bordercolor="#33DA03"
+      align="center"
+      width="250"
+      border="1"
+      style="border-collapse: collapse; color: #006600"
+      bgcolor="#D9FED8"
+    >
+      <tr>
+        <td colspan="2">Tiền lương</td>
+        <td colspan="2">
+          <input
+            style="width: 80%"
+            min="0"
+            max="10"
+            type="number"
+            id="salary"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">Xếp loại</td>
+        <td colspan="2">
+          <select id="rank">
+            <option value="A">Loại A</option>
+            <option value="B">Loại B</option>
+            <option value="C">Loại C</option>
+            <option value="D">Loại D</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" colspan="4">
+          <button>Tính</button>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" colspan="4">
+          <span style="color: red" id="totalSalary"></span>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      function calculateSalary() {
+        var salary = document.getElementById("salary").value;
+        var rank = document.getElementById("rank").value;
+
+        var totalSalary = 0;
+
+        switch (rank) {
+          case "A":
+            totalSalary = salary * 2;
+            break;
+          case "B":
+            totalSalary = salary * 1.8;
+            break;
+          case "C":
+            totalSalary = salary * 1.2;
+            break;
+          case "D":
+            totalSalary = salary * 0.8;
+            break;
+        }
+
+        return totalSalary;
+      }
+
+      var btnElement = document.querySelector("button");
+      btnElement.onclick = () => {
+        var total = calculateSalary();
+
+        var totalSalary = document.getElementById("totalSalary");
+
+        totalSalary.innerText = `tiền thưởng là : ${total} đồng`;
+      };
+    </script>
+  </body>
+</html>
